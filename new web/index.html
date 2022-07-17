@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Visualization Dashboard</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <!-- Leaflet JavaScript code -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <!-- D3 Library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Icon CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <!-- Legend CSS -->
+    <link rel="stylesheet" href="assets/css/leaflet.legend.css" />
+    <!-- Our Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="col-sm-12 col-md-2">
+            <a class="navbar-brand" style="background-color:rgb(69, 66, 234);" href="index.html"><strong>HOME</strong></a>
+            <button class="navbar-toggler border border-black " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </div> 
+          <div class="col-sm-12 col-md-8">
+            <h2 class="imageNav-header"><u><b>H</b></u>umans <u><b>A</b></u>gainst the <u><b>T</b></u>endentious <u><b>E</b></u>radication of <u><b>R</b></u>oeVsWade <i>(H.A.T.E.R.)</i></h2>
+          </div>
+          
+          <!-- add drop down  -->
+          <div class="col-sm-12 col-md-2">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Datasets</strong>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="visualizations/Datasets.html">Banning Abortion Volume scatter plot</a> 
+                  <a class="dropdown-item" href="visualizations/Total_abortion.html">Total Abortion</a> 
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="visualizations/Overall_data.html"><strong>Overall</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="visualizations/data.html"><strong>Data_1</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="visualizations/data_2.html"><strong>Data_2</strong></a>
+            </li>
+                          
+          </ul>
+        </div>  
+        </div>
+    </nav>
+</div>  
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
+          <div class=box>
+            <h3>The History of Abortion in the United States</h3>
+            <hr>
+            <div class="col-6">
+            <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fnews.trust.org%2FcontentAsset%2Fimage%2Fb5d48909-79c3-4f26-a262-ef28e9c40a08%2Fimage%2FResize%2CJpeg%2Fjpeg_q%2Fresize_w%2F1000" alt="Girl in a jacket"style="width:600px;height:400px;"> 
+          </div>
+            <p>Roe V. Wade was a landmark ruling that legally validated those of possible child-bearing status and granted them the 
+            right to their own autonomy. In its passing, the number of illegal abortions dropped down to 13% of what it was in the previous
+            years, and the number of injuries and deaths caused by these illegal abortions also dropped significantly. Roe V. Wade also propelled 
+            forward the development of these procedures, leading to the increased regulations that protected the safety of the patient seeking to 
+            obtain an abortion. With the government on their side, people were able to talk more freely about having an abortion, and the stigma 
+            behind getting an abortion diminished. In the 1990s, when more and more households needed to become a dual-income earning one to maintain
+            their livelihoods, and when more and more child-bearing individuals started entering the workforce, the idea of having children took
+            a backseat to figuring out what they really wanted in life. This trend of choosing self over blindly following the ideals pushed unto 
+            them from the previous generations grew, coupled with the increased access to sex information and education via the internet, has lead to
+            the steady decline of the total number of proceedures sought out each passing year.</p> 
+            <p><i>In fact, the number of abortions hit a record low in 2017.</i></p>
+            <p>Now, with the overturning of Roe V. Wade, the United States Supreme Court is currently facing a major backlash. </p>
+            <p>With hundreds of rage-fueled protests being organized nationwide, this blatant violation of one's right to privacy to anyone 
+            seeking an abortion is just another battle in this never-ending war against those that want to control what they don't understand.</p>
+            <p>To support those in need, we created this informative page. Below is a map of all of the states, the banned status of abortions in
+            that state, and its general limitations. Also included are the links to various organizations that are dedicated to fighting this 
+            injustice. And even if you aren't in need of an abortion, a lot of these places are non-profits and are always looking for donations 
+            that will allow them to keep providing their services.</p>
+      </div>
+
+      <div class="container">
+        <div id="map">
+            <i class="fa-solid fa-baby"></i>
+        </div>
+      </div>
+
+      <div class=box>
+        <h3>Banning Abortion Volume</h3>
+        <hr>
+        <div class="col-6">
+        <!-- <a href="visualizations/Datasets.html"></a> -->
+        <img src="assets/images/Fig1.png" alt="Girl in a jacket" style="width:600px;height:450px;">
+        <hr>  
+      </div>
+
+      <div class=box>
+        <h3>Banning Abortion timeline</h3>
+        <hr>
+        <div class="col-6"> 
+        <img src="assets/images/Fig 4.png" alt="Girl in a jacket" style="width:1000px;height:450px;"> 
+        <hr>  
+      </div>
+      </div>
+
+      <div class=box>
+        <h3>Sum Of Abortion Totals</h3>
+        <hr>
+        <div class="col-6"> 
+        <img src="assets/images/Fig 5.png" alt="Girl in a jacket" style="width:1000px;height:450px;"> 
+        <hr>  
+      </div>
+      </div>
+      
+      <div class=box>
+        <h3>Total Abortion</h3>
+        <hr>
+        <div class="col-6"> 
+        <img src="assets/images/Fig3.png" alt="Girl in a jacket" style="width:1000px;height:450px;"> 
+        <hr>  
+      </div>
+      </div>
+
+     <!-- <p> </p> -->
+      </div>
+      <div class=box>
+        <h3>Total Abortion</h3>
+        <hr>
+        <div class="col-6"> 
+        <img src="assets/images/Fig 6.png" alt="Girl in a jacket" style="width:1000px;height:450px;"> 
+        <hr>  
+      </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+        <!-- Start of Visualizations imageNav Area -->
+     <div class=box>
+     <section id="imageNav-area">
+       <div class="imageNav-content">
+         <h2 class="imageNav-header">Need Help?</h2>
+         <hr>        
+         <div class="container">
+             <div class="row">
+              <a href="https://www.heyjane.co/">
+                <h4 class="imageNav-header"><u>Hey Jane</u></h4></a>
+              <p>Hey Jane is an in-home abortion provider service that ships
+              FDA-approved abortion pills to your door. Once confirming your
+              eligibility, you can talk to a licensed medical provider and they
+              will send out your treatment in discreet packaging to protect
+              your privacy. They also provide counseling and some financial help
+              through their abortion funds partners. Even though they only operate
+              in 7 states, they have plans to expand.
+              </p>
+              <a href="https://prochoice.org/patients/naf-hotline/#:~:text=Trying%20to%20end%20a%20pregnancy,options%20for%20ending%20a%20pregnancy.">
+                <h4 class="imageNav-header"><u>National Abortion Federation (NAF)</u></h4></a>
+              <p>The National Abortion Federation is an
+              association of abortion providers that have come
+              together under the same goal: To help those in 
+              search of an abortion to get the 'patient-centered, 
+              evidence-based care' they deserve. This includes offering:
+              consultations, referrals, and, depending on the case,
+              limited financial assistance. They even have the nation's 
+              largest toll-free, multi-lingual hotline.</p>
+              <p><u><b>Hotline:</b></u> 1-800-772-9100</p>
+              <p><u><b>Referral Line:</b></u> 1-877-257-0012</p>
+              <br>
+              <a href="https://www.nationaladvocatesforpregnantwomen.org/">
+                <h4 class="imageNav-header"><u>National Advocates for Pregnant Women (NAPW)</u></h4></a>
+              <p>National Advocates for Pregnant Women is a 
+              non-profit organization that works to
+              secure the human and civil rights, health and
+              welfare of all people, focusing particularly on
+              those who are either currently pregnant or parenting or both.
+              They are also focused on helping those who are
+              most likely to be targeted for state control and
+              punishment - low income women, women of color, and women
+              with known records of drug abuse.</p>
+              <br>
+              <a href="https://www.plannedparenthood.org/">
+                <h4 class="imageNav-header"><u>Planned Parenthood</u></h4></a>
+              <p>Planned Parenthood is a well known non-profit that is 
+              dedicated to providing accessible health care for all. The 
+              services they offer range from cancer screenings, to STI 
+              testing and treatment, to hormone therapy, to abortions. They
+              even have an app for those who can't get to a clinic, a text 
+              with a Health Educator option that will help answer your 
+              questions, and will work with you to help pay for the 
+              services you need either through your insurance or any
+              assistance program that you may qualify for.</p>
+              <p><b><u>Click To Download the Planned Parenthood App:</u></b></p>
+              <a href="https://apps.apple.com/US/app/id1214393415?mt=8">
+                <img src="assets/images/Apple.png" alt="Download on the App Store" class="store-badge"></a>
+              <a href="https://play.google.com/store/apps/details?id=com.ppfa.direct&hl=en_US&gl=US">
+                <img src="assets/images/Google.png" alt="Download on the App Store" class="store-badge"></a>
+              <p><b><u>Text With A Health Educator:</u></b>
+              Text "PPNOW" to 774636 (PPINFO)</p>
+              <br>
+              <hr>
+            </div>
+        </div>
+      </div>
+        <section id="imageNav-area">
+          <div class="imageNav-content">
+            <h2 class="imageNav-header">Want To Help?</h2>
+              <div class="container">
+              <div class="row">
+
+            <hr>
+            <a href="https://reproductiverights.org/">
+              <h4 class="imageNav-header"><u>Center For Reproductive Rights</u></h4></a>
+              <p>The Center for Reproductive Rights is a global advocacy program that focuses on
+              using the law to defend the reproductive rights of those in more than 70
+              countries. Their team of lawyers and advocates have worked on cases on every level of 
+              the judicial system, from state, to federal, to the Supreme Court. They even have 
+              a Pro Bono team that dedicates their time to securing the reproductive autonomy 
+              for people around the world.</p>
+              <a href="https://secure3.convio.net/cfrr/site/Donation2?9666.donation=form1&df_id=9666&mfc_pref=T&s_src=21RRFR0421Nav&s_subsrc=datasync&autologin=true">
+                <p><b><u>Click Here To Donate</u></b></p></a>
+              </div>
+              </div>
+        </div>
+    </div>
+</div>
+        
+      
+  
+<!-- footer -->
+<footer>
+<div class="footer">&copy; Copyright@2022</div>
+</footer>
+<!-- Our JavaScript -->
+<script type="text/javascript" src="js/logic.js"></script>
+<!-- Glyph Javascript -->
+<script type="text/javascript" src="Leaflet.Icon.Glyph.js"></script>
+<!-- Legend JS -->
+<script src="static/js/leaflet.legend.js" />  
+</body>
+</html>
